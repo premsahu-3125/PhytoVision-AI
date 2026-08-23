@@ -1,0 +1,23 @@
+# Full dependency set for local development, the FastAPI service (app.py),
+# training/export scripts, and the test suite (test_pipeline.py).
+# For deploying ONLY the Streamlit app, use requirements-streamlit.txt instead
+# (Streamlit Community Cloud: Settings -> Advanced -> "Python dependencies file").
+fastapi
+uvicorn
+python-multipart
+pydantic
+torch
+torchvision
+timm
+pillow
+opencv-python-headless
+plotly
+streamlit
+pytest
+pytest-cov
+httpx
+reportlab
+onnx
+onnxruntime
+scikit-learn
+matplotlib

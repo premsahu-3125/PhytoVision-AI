@@ -1,0 +1,23 @@
+# Lean dependency set for deploying ONLY streamlit_app.py.
+# On Streamlit Community Cloud: Settings -> Advanced settings -> "Requirements
+# file" -> point this at requirements-streamlit.txt instead of requirements.txt.
+#
+# Why this matters: the default `torch` PyPI wheel bundles CUDA libraries that
+# are useless on Streamlit Cloud's CPU-only containers and add ~600MB+ to the
+# build plus a much slower cold start. Installing from the official CPU-only
+# index avoids that entirely. This file also drops packages streamlit_app.py
+# never imports (fastapi, uvicorn, onnx/onnxruntime, scikit-learn, matplotlib,
+# pytest*) which further speeds up builds and reduces the app's memory
+# footprint on the free tier's 1GB RAM limit.
+
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+torchvision
+
+timm
+pillow
+opencv-python-headless
+plotly
+streamlit
+reportlab
+numpy
