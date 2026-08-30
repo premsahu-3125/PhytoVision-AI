@@ -14,6 +14,23 @@ and `healthy` — from bean leaf photos. It is not a general-purpose plant ident
 
 ---
 
+## 🚀 Try It Live
+
+### 🎉 One-Click Deploy to Streamlit Cloud (3 minutes)
+
+[![Deploy to Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/new?repo=https://github.com/premsahu-3125/PhytoVision-AI)
+
+**OR follow the quick guide:**
+- 📖 [Complete Streamlit Deploy Guide](./STREAMLIT_DEPLOY.md) - Full instructions
+- ⚡ [5-Minute Quick Deploy](./QUICK_STREAMLIT_DEPLOY.md) - TL;DR version
+
+**After deploying**, add your live URL to GitHub's About section:
+```bash
+gh repo edit premsahu-3125/PhytoVision-AI --homepage "https://your-streamlit-url"
+```
+
+---
+
 ## 🏗️ System Architecture
 
 ```text
@@ -53,16 +70,35 @@ pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
 
+App runs on: `http://localhost:8501`
+
+---
+
 ## ☁️ Deploying on Streamlit Community Cloud
 
-Use the trimmed, CPU-only dependency file instead of the full one — it installs
-much faster and uses far less memory on the free tier:
+**Streamlit Community Cloud is FREE and perfect for hosting this AI app!**
 
-1. In your app's **Settings → Advanced settings**, set "Requirements file" to `requirements-streamlit.txt`.
-2. Main file path: `streamlit_app.py`.
+### Quick Deploy (5 minutes)
+See [QUICK_STREAMLIT_DEPLOY.md](./QUICK_STREAMLIT_DEPLOY.md) for step-by-step instructions.
 
-`requirements-streamlit.txt` installs CPU-only PyTorch wheels and skips packages the
-Streamlit app never imports (FastAPI, ONNX runtime, scikit-learn, matplotlib, pytest).
+### Full Guide (with details)
+See [STREAMLIT_DEPLOY.md](./STREAMLIT_DEPLOY.md) for complete deployment guide.
+
+### Manual Steps
+1. Go to https://streamlit.io/cloud
+2. Click "New app"
+3. Select this GitHub repo
+4. In Advanced settings, set Requirements file to: `requirements-streamlit.txt`
+5. Click Deploy
+
+**Why `requirements-streamlit.txt`?**
+- Uses CPU-only PyTorch (much faster, fits free tier)
+- Skips unnecessary packages
+- ~80% smaller, deploys in 2-3 minutes instead of 10+
+
+**Result:** You get a live URL like `https://phytovision-ai-[random].streamlit.app`
+
+---
 
 ## 🧪 Tests
 
